@@ -8,10 +8,15 @@ const App = () => {
   const addTodo = (text: string) => {
     setTodos((prev) => [...prev, { id: Math.random().toString(), text }]);
   };
+  const deleteTodo = (id: string) => {
+    setTodos((prev) => {
+      return prev.filter((item) => item.id !== id);
+    });
+  };
   return (
     <>
       <NewTodo addTodo={addTodo} />
-      <TodoList items={todos} />
+      <TodoList items={todos} deleteTodo={deleteTodo} />
     </>
   );
 };
