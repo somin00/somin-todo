@@ -1,16 +1,21 @@
 import React from "react";
 import { Todo } from "../todo.model";
 import "./TodoList.css";
+import { useDispatch } from "react-redux";
+import { remove } from "../store/todoSlice";
 
 type TodoListProps = {
-  items: Todo[];
-  deleteTodo: (id: string) => void;
+  todos: Todo[];
 };
 
-export const TodoList = ({ items, deleteTodo }: TodoListProps) => {
+export const TodoList = ({ todos }: TodoListProps) => {
+  const dispatch = useDispatch();
+  const deleteTodo = (id: string) => {
+    dispatch(remove(id));
+  };
   return (
     <ul>
-      {items.map((todo) => (
+      {todos.map((todo) => (
         <li key={todo.id}>
           <span>{todo.text}</span>
           <button

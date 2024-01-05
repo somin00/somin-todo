@@ -1,16 +1,17 @@
 import React, { useRef, FormEvent } from "react";
 import "./NewTodo.css";
-type NewTodoProps = {
-  addTodo: (text: string) => void;
-};
+import { useDispatch } from "react-redux";
+import { add } from "../store/todoSlice";
 
-export const NewTodo = ({ addTodo }: NewTodoProps) => {
+export const NewTodo = () => {
+  const dispatch = useDispatch();
   const inputRef = useRef<HTMLInputElement>(null);
 
   const submitTodo = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const newTodoText = (inputRef.current as HTMLInputElement).value;
-    addTodo(newTodoText);
+    dispatch(add(newTodoText));
+    (inputRef.current as HTMLInputElement).value = "";
   };
 
   return (
