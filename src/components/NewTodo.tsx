@@ -1,5 +1,5 @@
 import React, { useRef, FormEvent } from "react";
-
+import "./NewTodo.css";
 type NewTodoProps = {
   addTodo: (text: string) => void;
 };
@@ -15,7 +15,7 @@ export const NewTodo = ({ addTodo }: NewTodoProps) => {
 
   return (
     <form onSubmit={submitTodo}>
-      <div>
+      <div className="form-control">
         <label htmlFor="todo-text">할 일: </label>
         <input type="text" id="todo-text" ref={inputRef} />
       </div>

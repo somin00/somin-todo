@@ -1,0 +1,44 @@
+form {
+  width: 90%;
+  max-width: 40rem;
+  margin: 2rem auto;
+  display: flex;
+  align-items: flex-end;
+}
+
+.form-control {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+label,
+input {
+  display: block;
+}
+
+label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+input {
+  font: inherit;
+  border: 1px solid #ccc;
+  padding: 0.25rem;
+}
+
+button {
+  background: #000000;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  height: 29px;
+  padding: 0 1.5rem;
+}
+
+button:focus {
+  outline: none;
+}
