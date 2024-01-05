@@ -1,11 +1,10 @@
 import React from "react";
+import { Todo } from "../todo.model";
 
 type TodoListProps = {
-  items: {
-    id: string;
-    text: string;
-  }[];
+  items: Todo[];
 };
+
 export const TodoList = ({ items }: TodoListProps) => {
   return (
     <ul>
