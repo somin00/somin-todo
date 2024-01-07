@@ -37,3 +37,19 @@ export const updateTodo: RequestHandler<{ id: string }> = (req, res, next) => {
     updatedTodo: TODOS[todoIdx],
   });
 };
+
+export const deleteTodo: RequestHandler<{ id: string }> = (req, res, next) => {
+  const todoId = req.params.id;
+
+  const todoIdx = TODOS.findIndex((todo) => todo.id === todoId);
+
+  if (todoIdx < 0) throw new Error("할 일을 찾을 수 없습니다.");
+
+  const deletedTodo = TODOS[todoIdx];
+  TODOS.splice(todoIdx, 1);
+
+  res.json({
+    message: "할 일을 삭제했습니다.",
+    deletedTodo,
+  });
+};
