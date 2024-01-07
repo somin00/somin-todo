@@ -14,3 +14,10 @@ export const createTodo: RequestHandler = (req, res, next) => {
     createdTodo: newTodo,
   });
 };
+
+export const getTodos: RequestHandler = (req, res, next) => {
+  res.status(200).json({
+    message: "모든 할 일 목록을 가져오는데 성공했습니다.",
+    todos: TODOS,
+  });
+};
