@@ -21,3 +21,19 @@ export const getTodos: RequestHandler = (req, res, next) => {
     todos: TODOS,
   });
 };
+
+//url params type
+export const updateTodo: RequestHandler<{ id: string }> = (req, res, next) => {
+  const todoId = req.params.id;
+  const updateText = (req.body as { text: string }).text;
+
+  const todoIdx = TODOS.findIndex((todo) => todo.id === todoId);
+
+  if (todoIdx < 0) throw new Error("할 일을 찾을 수 없습니다.");
+  TODOS[todoIdx] = new Todo(todoId, updateText);
+
+  res.json({
+    message: "할 일 목록을 수정했습니다.",
+    updatedTodo: TODOS[todoIdx],
+  });
+};
