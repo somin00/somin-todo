@@ -11,13 +11,17 @@ const todoSlice = createSlice({
       state.push({
         id: Math.random().toString(),
         text: action.payload,
+        checked: false,
       });
     },
     remove: (state, action) => {
       return state.filter((item) => item.id !== action.payload);
     },
+    toggleCheck: (state, action) => {
+      return state.map((item) => (item.id === action.payload ? { ...item, checked: !item.checked } : { ...item }));
+    },
   },
 });
 
 export default todoSlice;
-export const { add, remove } = todoSlice.actions;
+export const { add, remove, toggleCheck } = todoSlice.actions;

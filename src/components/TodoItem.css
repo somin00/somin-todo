@@ -23,6 +23,10 @@ span {
   text-align: left;
 }
 
+span.is-complete {
+  text-decoration: line-through;
+}
+
 @media (max-width: 600px) {
   .todo-label {
     width: 60%;

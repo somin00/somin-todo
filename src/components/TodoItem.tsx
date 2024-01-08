@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { remove } from "../store/todoSlice";
+import { remove, toggleCheck } from "../store/todoSlice";
 import { Todo } from "../todo.model";
 import "./TodoItem.css";
 
@@ -9,22 +9,21 @@ type TodoItemProps = {
 
 export const TodoItem = ({ todo }: TodoItemProps) => {
   const dispatch = useDispatch();
-  const deleteTodo = (id: string) => {
-    dispatch(remove(id));
+
+  const toggleCheckTodo = () => {
+    dispatch(toggleCheck(todo.id));
+  };
+
+  const deleteTodo = () => {
+    dispatch(remove(todo.id));
   };
   return (
-    <li key={todo.id}>
-      <input type="checkbox" id="todoCheck" />
+    <li>
+      <input type="checkbox" id="todoCheck" onChange={toggleCheckTodo} />
       <label htmlFor="todoCheck" className="todo-label">
-        <span>{todo.text}</span>
+        <span className={todo.checked ? "is-complete" : ""}>{todo.text}</span>
       </label>
-      <button
-        onClick={() => {
-          deleteTodo(todo.id);
-        }}
-      >
-        삭제
-      </button>
+      <button onClick={deleteTodo}>삭제</button>
     </li>
   );
 };
