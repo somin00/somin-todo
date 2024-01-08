@@ -1,0 +1,30 @@
+li {
+  margin: 1rem 0;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input[type="checkbox"] {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.todo-label {
+  width: 70%;
+}
+
+span {
+  display: inline-block;
+  width: 100%;
+  text-align: left;
+}
+
+@media (max-width: 600px) {
+  .todo-label {
+    width: 60%;
+  }
+}
