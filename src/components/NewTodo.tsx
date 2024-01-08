@@ -17,7 +17,7 @@ export const NewTodo = () => {
   return (
     <form onSubmit={submitTodo}>
       <div className="form-control">
-        <label htmlFor="todo-text">할 일: </label>
+        <label htmlFor="todo-text">할 일 </label>
         <input type="text" id="todo-text" ref={inputRef} />
       </div>
       <button type="submit">추가</button>
