@@ -1,25 +1,27 @@
 import { useDispatch } from "react-redux";
-import { remove, toggleCheck } from "../store/todoSlice";
 import { Todo } from "../todo.model";
 import "./TodoItem.css";
+import { AppDispatch } from "../store";
+import { removeTodo, updateTodo } from "../store/todoAsynSlice";
 
 type TodoItemProps = {
   todo: Todo;
 };
 
 export const TodoItem = ({ todo }: TodoItemProps) => {
-  const dispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
 
   const toggleCheckTodo = () => {
-    dispatch(toggleCheck(todo.id));
+    const updateData = { id: todo.id, text: todo.text, checked: !todo.checked };
+    dispatch(updateTodo(updateData));
   };
 
   const deleteTodo = () => {
-    dispatch(remove(todo.id));
+    dispatch(removeTodo(todo.id));
   };
   return (
     <li>
-      <input type="checkbox" id="todoCheck" onChange={toggleCheckTodo} />
+      <input type="checkbox" id="todoCheck" checked={todo.checked} onChange={toggleCheckTodo} />
       <label htmlFor="todoCheck" className="todo-label">
         <span className={todo.checked ? "is-complete" : ""}>{todo.text}</span>
       </label>

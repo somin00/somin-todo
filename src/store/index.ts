@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import todoSlice from "./todoSlice";
+import { asyncTodoThunkSlice } from "./todoAsynSlice";
 
 const store = configureStore({
   reducer: {
-    todo: todoSlice.reducer,
+    asyncTodoThunk: asyncTodoThunkSlice.reducer,
   },
 });
 
