@@ -14,7 +14,7 @@ export const createTodo: RequestHandler = (req, res, next) => {
     }
     res.status(201).json({
       message: "할 일 추가 성공",
-      todos: {
+      newTodo: {
         id: params[0],
         text,
         checked: false,
@@ -51,7 +51,7 @@ export const updateTodo: RequestHandler<{ id: string }> = (req, res, next) => {
     }
     res.json({
       message: "할 일 수정 성공",
-      todos: {
+      updatedTodo: {
         id: todoId,
         text: updateText,
         checked: isComplete,
@@ -70,6 +70,7 @@ export const deleteTodo: RequestHandler<{ id: string }> = (req, res, next) => {
     }
     res.json({
       message: "할 일 삭제 성공",
+      deletedTodoId: todoId,
     });
   });
 };
