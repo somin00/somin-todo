@@ -8,7 +8,7 @@
 - 할 일 추가
   ![할 일 추가 기능](https://github.com/somin00/somin-todo/assets/61578822/97e2e209-4a93-4f8c-b449-cdeaacc1a08a)
 
-- 할 일 수정
+- 할 일 수정 (텍스트 수정 기능 추가 예정)
   ![완료 상태 토글 기능](https://github.com/somin00/somin-todo/assets/61578822/caabb0b0-1d6f-4e36-81bc-520af76968f8)
 
 - 할 일 삭제
